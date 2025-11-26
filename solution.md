@@ -4,14 +4,14 @@
 <summary> Step 1 Solution - Define the Transaction Class</summary>
 Python - transaction_tracker.py
 
-```py
+```python
 class Transaction:
-  def __init__(self, amount, description):
-      self.amount = amount
-      self.description = description
+    def __init__(self, amount, description):
+        self.amount = amount
+        self.description = description
 
-  def show(self):
-      print(f"{self.amount} - {self.description}")
+    def show(self):
+        print(f"{self.amount} - {self.description}")
 
 ```
 </details>
@@ -28,7 +28,7 @@ transactions.append(Transaction(200, "example payment 1"))
 transactions.append(Transaction(40, "example payment 2"))
 
 for t in transactions:
-  t.show()
+    t.show()
 ```
 </details>  
 
@@ -53,23 +53,23 @@ Python - transaction_tracker.py
 
 ```python
 while True:
-  print("\n1. Add Credit")
-  print("2. Add Debit")
-  print("3. View History")
-  print("4. Exit")
+    print("1. Add Credit")
+    print("2. Add Debit")
+    print("3. View History")
+    print("4. Exit")
 
-  choice = input("Choose an option: ")
+    choice = input("Choose an option: ")
 
-  if choice == "4":
-      break
-  elif choice == "1":
-      print("You chose Add Credit")
-  elif choice == "2":
-      print("You chose Add Debit")
-  elif choice == "3":
-      print("You chose View History")
-  else:
-      print("Invalid option, please try again.")
+    if choice == "1":
+        print("You chose Add Credit")
+    elif choice == "2":
+        print("You chose Add Debit")
+    elif choice == "3":
+        print("You chose View History")
+    elif choice == "4":
+        break
+    else:
+        print("Invalid option, please try again.")
 ```
 </details>   
 
@@ -83,20 +83,24 @@ Python - transaction_tracker.py
 while True:
 	# ... earlier print menu and user input 'choice' code
 	
-  if choice == "4":
-    break
-  elif choice == "1":
-    print("You chose Add Credit")
-    amount = float(input("Enter credit amount: "))
-		description = input("Enter description: ")
-		t = Transaction(amount, description)
-		transactions.append(t)
-  elif choice == "2":
-    print("You chose Add Debit")
-  elif choice == "3":
-    print("You chose View History")
-  else:
-    print("Invalid option, please try again.")
+    if choice == "1":
+        print("You chose Add Credit")
+        amount = float(input("Enter credit amount: "))
+            description = input("Enter description: ")
+            t = Transaction(amount, description)
+            transactions.append(t)
+    elif choice == "2":
+        print("You chose Add Debit")
+    elif choice == "3":
+        print("You chose View History")
+    elif choice == "4":
+        break
+    else:
+        print("Invalid option, please try again.")
+
+# Use this loop to test your code
+for t in transactions:
+    t.show()
 ```
 </details>   
 
@@ -109,11 +113,11 @@ Python - transaction_tracker.py
 ```python
 # Debits (inside choice == "2" elif code block)
 elif choice == "2":
-  print("You chose Add Debit")
-	amount = float(input("Enter debit amount: "))
-	description = input("Enter description: ")
-	t = Transaction(-1 * amount, description)
-	transactions.append(t)
+    print("You chose Add Debit")
+        amount = float(input("Enter debit amount: "))
+        description = input("Enter description: ")
+        t = Transaction(-1 * amount, description)
+        transactions.append(t)
 ```
 </details>   
 
@@ -181,13 +185,8 @@ def main():
         # Ask the user for their choice
         choice = input("Choose an option: ")
 
-        # STEP 4: Handle Exit first
-        if choice == "4":
-            print("Exiting the tracker. Goodbye!")
-            break
-
         # STEP 5: Add Transaction Credit Logic
-        elif choice == "1":
+        if choice == "1":
             amount = float(input("Enter credit amount: "))
             description = input("Enter description: ")
             t = Transaction(amount, description)
@@ -214,6 +213,11 @@ def main():
                     balance += t.amount
                 print(f"---------------------------")
                 print(f"Current Balance: {balance}")
+
+        # STEP 4: Handle Exit
+        elif choice == "4":
+            print("Exiting the tracker. Goodbye!")
+            break
 
         # Invalid choice handler
         else:
