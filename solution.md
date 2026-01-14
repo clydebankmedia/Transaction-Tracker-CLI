@@ -86,9 +86,9 @@ while True:
     if choice == "1":
         print("You chose Add Credit")
         amount = float(input("Enter credit amount: "))
-            description = input("Enter description: ")
-            t = Transaction(amount, description)
-            transactions.append(t)
+		description = input("Enter description: ")
+		t = Transaction(amount, description)
+		transactions.append(t)
     elif choice == "2":
         print("You chose Add Debit")
     elif choice == "3":
