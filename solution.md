@@ -114,10 +114,10 @@ Python - transaction_tracker.py
 # Debits (inside choice == "2" elif code block)
 elif choice == "2":
     print("You chose Add Debit")
-        amount = float(input("Enter debit amount: "))
-        description = input("Enter description: ")
-        t = Transaction(-1 * amount, description)
-        transactions.append(t)
+	amount = float(input("Enter debit amount: "))
+	description = input("Enter description: ")
+	t = Transaction(-1 * amount, description)
+	transactions.append(t)
 ```
 </details>   
 
